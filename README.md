@@ -1,54 +1,77 @@
-# React + TypeScript + Vite
+# 🧱 BM UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**BM UI** is the internal design system of Barbamaster, providing reusable UI components, global styles, and utilities to ensure consistent design across applications on the platform.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Installation
 
-## Expanding the ESLint configuration
+> This package is private. Make sure you're authenticated with a valid NPM token.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install @barbamaster/bm-ui
+# or
+yarn add @barbamaster/bm-ui
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```tsx
+import { Button } from "@barbamaster/bm-ui";
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+export default function Home() {
+  return <Button>My Button</Button>;
+}
 ```
+
+## 📁 Project Structure
+
+```txt
+bm-ui/
+├── dist/                     # Compiled build files
+├── lib/                      # Final transpiled code
+├── src/                      # Source code
+│   ├── components/           # Reusable components
+│   │   ├── Button/           # Button component
+│   │   │   └── index.tsx
+│   │   └── ui/               # Subcomponents or variations
+│   │       └── button.tsx
+│   ├── styles/               # Global styles and theme
+│   │   ├── global.css
+│   │   └── theme.ts
+│   └── utils/                # General utility functions
+│       └── cn.ts             # Likely a className (cn) helper
+├── public/                   # Public static assets
+├── .npmrc                    # NPM token and registry config
+├── package.json              # Project metadata
+├── tsconfig.*.json           # TypeScript configurations
+└── vite.config.ts            # Vite bundler configuration
+```
+
+## 🎨 Styling
+
+- Global styles: `src/styles/global.css`
+- Theme variables: `src/styles/theme.ts`
+
+## 🧩 Components
+
+Component | Description
+Button | Reusable styled button
+
+## 🧪 Testing
+
+(This section will be updated when test coverage is added.)
+
+## 🚀 Build
+
+```bash
+  yarn build
+```
+
+## 👨‍💻 Contributing
+
+1. Clone this repository
+2. Install dependencies: yarn
+3. Create a new component under src/components/YourComponent
+4. Run yarn dev to develop locally
+5. Open a PR for review
